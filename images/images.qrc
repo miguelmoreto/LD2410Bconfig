@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>refresh.png</file>
+    <file>about.png</file>
+    <file>addsys.png</file>
+    <file>close.png</file>
+    <file>lupe.png</file>
+    <file>removesys.png</file>
+    <file>system.png</file>
+  </qresource>
+</RCC>
