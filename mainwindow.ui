@@ -115,8 +115,50 @@
      <string>...</string>
     </property>
     <property name="icon">
-     <iconset resource="images/images.qrc">
+     <iconset resource="../pyLD2410B/images/images.qrc">
       <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelbytes">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>350</y>
+      <width>281</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labeltmp">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>390</y>
+      <width>54</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnClosePort">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>90</y>
+      <width>85</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Close Port</string>
     </property>
    </widget>
   </widget>
@@ -136,7 +178,7 @@
   </widget>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="images/images.qrc">
+    <iconset resource="../pyLD2410B/images/images.qrc">
      <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
    </property>
    <property name="text">
@@ -151,7 +193,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="images/images.qrc">
+    <iconset resource="../pyLD2410B/images/images.qrc">
      <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
    </property>
    <property name="text">
@@ -166,7 +208,7 @@
   </action>
  </widget>
  <resources>
-  <include location="images/images.qrc"/>
+  <include location="../pyLD2410B/images/images.qrc"/>
  </resources>
  <connections>
   <connection>
