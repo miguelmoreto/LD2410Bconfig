@@ -14,153 +14,362 @@
    <string>LD2410B Configuration Tool</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextEdit" name="textEditMessagesLog">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>210</y>
-      <width>461</width>
-      <height>90</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboSerial">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>50</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnOpenPort">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>50</y>
-      <width>86</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open Port</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>510</y>
-      <width>151</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>by Miguel Moreto - 2024</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEditSendCmd">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>160</y>
-      <width>281</width>
-      <height>26</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnSendCmd">
-    <property name="geometry">
-     <rect>
-      <x>345</x>
-      <y>160</y>
-      <width>101</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Send Command</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEditBoud">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>50</y>
-      <width>113</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhDigitsOnly</set>
-    </property>
-    <property name="text">
-     <string>256000</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="btnSerialRefresh">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>50</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Refresh the list of serial ports.</string>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-    <property name="icon">
-     <iconset resource="../pyLD2410B/images/images.qrc">
-      <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelbytes">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>350</y>
-      <width>281</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labeltmp">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>390</y>
-      <width>54</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="textFormat">
-     <enum>Qt::PlainText</enum>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnClosePort">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>90</y>
-      <width>85</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Close Port</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QGroupBox" name="groupBoxSerialPort">
+         <property name="title">
+          <string>Serial Port (8-N-1):</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>6</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="btnSerialRefresh">
+            <property name="toolTip">
+             <string>Refresh the list of serial ports.</string>
+            </property>
+            <property name="text">
+             <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../pyLD2410B/images/images.qrc">
+              <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboSerial">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Serial port</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBoxBaud">
+            <property name="toolTip">
+             <string>Serial baudrate [bps]</string>
+            </property>
+            <property name="currentIndex">
+             <number>6</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>9600</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>19200</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>28400</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>57600</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>115200</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>230400</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>256000</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>460800</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnOpenPort">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Open port and start monitoring.</string>
+            </property>
+            <property name="text">
+             <string>Open Port</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnClosePort">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Close port and stop monitoring</string>
+            </property>
+            <property name="text">
+             <string>Close Port</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBoxCommands">
+         <property name="title">
+          <string>Commands:</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1,0">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>6</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QComboBox" name="comboBoxCommands">
+              <item>
+               <property name="text">
+                <string>Turn ON bluetooth</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Turn OFF bluetooth</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Restart the module</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Reset</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Read Firmware version</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Turn ON engineering mode</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Turn OFF engineering mode</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 9600</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 19200</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 38400</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 57600</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 115200</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 230400</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 256000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Set baudrate 460800</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEditSendCmd">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>FDFCFBFA0400A400010004030201</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSendCmd">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Send Command</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QCheckBox" name="checkBoxData">
+           <property name="text">
+            <string>Radar data</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxAck">
+           <property name="text">
+            <string>Command ACK</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="textEditMessagesLog"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>by Miguel Moreto - 2024 </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
