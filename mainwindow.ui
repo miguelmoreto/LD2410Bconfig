@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
+    <width>503</width>
     <height>600</height>
    </rect>
   </property>
@@ -51,7 +51,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="../pyLD2410B/images/images.qrc">
+             <iconset resource="images/images.qrc">
               <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
             </property>
            </widget>
@@ -195,6 +195,9 @@
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <widget class="QComboBox" name="comboBoxCommands">
+              <property name="toolTip">
+               <string>You can select some pre-defined commands.</string>
+              </property>
               <item>
                <property name="text">
                 <string>Turn ON bluetooth</string>
@@ -212,7 +215,7 @@
               </item>
               <item>
                <property name="text">
-                <string>Reset</string>
+                <string>Reset to default</string>
                </property>
               </item>
               <item>
@@ -286,6 +289,9 @@
                 <height>32</height>
                </size>
               </property>
+              <property name="toolTip">
+               <string>Command data frame to be sent to the device (you can edit).</string>
+              </property>
               <property name="text">
                <string>FDFCFBFA0400A400010004030201</string>
               </property>
@@ -308,6 +314,9 @@
               <height>32</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Send command data frame to the device.</string>
+            </property>
             <property name="text">
              <string>Send Command</string>
             </property>
@@ -320,6 +329,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <widget class="QCheckBox" name="checkBoxData">
+           <property name="toolTip">
+            <string>Select to show the periodic output data frames from the the device.</string>
+           </property>
            <property name="text">
             <string>Radar data</string>
            </property>
@@ -330,6 +342,9 @@
          </item>
          <item>
           <widget class="QCheckBox" name="checkBoxAck">
+           <property name="toolTip">
+            <string>Select to show the acknoledge command data frames from the device.</string>
+           </property>
            <property name="text">
             <string>Command ACK</string>
            </property>
@@ -387,14 +402,14 @@
   </widget>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../pyLD2410B/images/images.qrc">
+    <iconset resource="images/images.qrc">
      <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
    </property>
    <property name="text">
     <string>Close</string>
    </property>
    <property name="toolTip">
-    <string>Close the window</string>
+    <string>Close program</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -402,14 +417,14 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="../pyLD2410B/images/images.qrc">
+    <iconset resource="images/images.qrc">
      <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
    </property>
    <property name="text">
     <string>About</string>
    </property>
    <property name="toolTip">
-    <string>Show about screen</string>
+    <string>Show about screen.</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
@@ -417,7 +432,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../pyLD2410B/images/images.qrc"/>
+  <include location="images/images.qrc"/>
  </resources>
  <connections>
   <connection>

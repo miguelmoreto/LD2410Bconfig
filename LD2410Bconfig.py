@@ -120,8 +120,10 @@ class LD2410AppWindow(QtWidgets.QMainWindow):#,MainWindow.Ui_MainWindow):
         super(LD2410AppWindow,self).__init__(parent)
         loadUi('mainwindow.ui', self)
 
-        # Serial object:
-        self.ser = serial.Serial()
+        # Just a spacer to put close button at the right:
+        empty = QtWidgets.QWidget()
+        empty.setSizePolicy(QtWidgets.QSizePolicy.Expanding,QtWidgets.QSizePolicy.Preferred)
+        self.toolBar.insertWidget(self.actionClose,empty)
 
         # Initial actions:
         self.updatePortsList()
@@ -136,6 +138,7 @@ class LD2410AppWindow(QtWidgets.QMainWindow):#,MainWindow.Ui_MainWindow):
         self.btnClosePort.clicked.connect(self.onbtnClosePort)
         self.btnSendCmd.clicked.connect(self.onbtnSendCommand)
         self.comboBoxCommands.currentIndexChanged.connect(self.onComboCommandsChanged)
+        self.actionAbout.triggered.connect(self.onAboutAction)
     
     # ********* Buttons event handlers: ************
     def onbtnSerialRefresh(self):
@@ -170,13 +173,11 @@ class LD2410AppWindow(QtWidgets.QMainWindow):#,MainWindow.Ui_MainWindow):
     
     def onbtnSendCommand(self):
         """
-        Send a command.
+        Send the command given in the lineEditSendCmd as an hexadecimal sequence.
         """
-        enableCfgcmd = 'FDFCFBFA0400FF00010004030201'
-        endCfgcmd = 'FDFCFBFA0200FE0004030201'
-
-        if(self.worker.openflag):
-            self.worker.sendCmd = bytes.fromhex(enableCfgcmd)
+        # Check if serial is open and send the contents of the command line edit:
+        if(self.worker.openflag): 
+            self.worker.sendCmd = bytes.fromhex(self.lineEditSendCmd.text())
         
     def onComboCommandsChanged(self, index):
         """
@@ -187,6 +188,32 @@ class LD2410AppWindow(QtWidgets.QMainWindow):#,MainWindow.Ui_MainWindow):
             cmdstr = 'FDFCFBFA0400A400010004030201'
         elif (index == 1): # Turn OFF bluetooth
             cmdstr = 'FDFCFBFA0400A400000004030201'
+        elif (index == 2): # Restar the module
+            cmdstr = 'FDFCFBFA0400A400000004030201'
+        elif (index == 3): # Reset
+            cmdstr = 'FDFCFBFA0200A20004030201'
+        elif (index == 4): # Read firmware version
+            cmdstr = 'FDFCFBFA0200A00004030201'
+        elif (index == 5): # Turn ON engineering mode
+            cmdstr = 'FDFCFBFA0200620004030201'
+        elif (index == 6): # Turn OFF engineering mode
+            cmdstr = 'FDFCFBFA0200630004030201'
+        elif (index == 7): # Set baud 9600 bps
+            cmdstr = 'FDFCFBFA0400A100010004030201'
+        elif (index == 8): # Set baud 19200 bps
+            cmdstr = 'FDFCFBFA0400A100020004030201'
+        elif (index == 9): # Set baud 38400 bps
+            cmdstr = 'FDFCFBFA0400A100030004030201'
+        elif (index == 10): # Set baud 57600 bps
+            cmdstr = 'FDFCFBFA0400A100040004030201'
+        elif (index == 11): # Set baud 115200 bps
+            cmdstr = 'FDFCFBFA0400A100050004030201'
+        elif (index == 12): # Set baud 230400 bps
+            cmdstr = 'FDFCFBFA0400A100060004030201'
+        elif (index == 13): # Set baud 256000 bps
+            cmdstr = 'FDFCFBFA0400A100070004030201'
+        elif (index == 14): # Set baud 460800 bps
+            cmdstr = 'FDFCFBFA0400A100080004030201'
         else:
             self.statusBar().showMessage(_translate("MainWindow", "Command not implemented yet.", None),5000)
             self.statusBar().repaint()
@@ -216,13 +243,23 @@ class LD2410AppWindow(QtWidgets.QMainWindow):#,MainWindow.Ui_MainWindow):
         self.statusBar().repaint()
 
     def updatePortsList(self):
+        """
+        Updates the comboBox with the available serial ports.
+        """
         # Remove existing itens:
         self.comboSerial.clear()
         # Add itens:
         for port in serial.tools.list_ports.comports():
             print(port.device)
             self.comboSerial.insertItem(0,port.device)
-    
+
+    def onAboutAction(self):
+        """
+        Show about dialog.
+        """
+        QtWidgets.QMessageBox.information(self,_translate("MainWindow", "About this program", None),
+                                          _translate("MainWindow", "This is a small app to send commands to HiLink LD2410 microwave presence sensor using a serial connection. It allows to read and send some pre-defined commands. It is also possible to send raw commands to the sensor.\r\nThis way it is possible to configure the module in a way that is not possible with the HiLink software.", None))
+
     # ********* Other events: ************
     def closeEvent(self, event):
         print('Closing application.')
