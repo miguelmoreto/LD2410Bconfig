@@ -188,8 +188,8 @@ class LD2410AppWindow(QtWidgets.QMainWindow):#,MainWindow.Ui_MainWindow):
             cmdstr = 'FDFCFBFA0400A400010004030201'
         elif (index == 1): # Turn OFF bluetooth
             cmdstr = 'FDFCFBFA0400A400000004030201'
-        elif (index == 2): # Restar the module
-            cmdstr = 'FDFCFBFA0400A400000004030201'
+        elif (index == 2): # Restart the module
+            cmdstr = 'FDFCFBFA0200A30004030201'
         elif (index == 3): # Reset
             cmdstr = 'FDFCFBFA0200A20004030201'
         elif (index == 4): # Read firmware version
